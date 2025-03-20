@@ -1,2 +1,2 @@
 # CPP-Mini-codes
-Contains algorithms and testing C++ concepts   
+Contains some testing and explanation for C++ concepts   
