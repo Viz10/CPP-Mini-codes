@@ -32,7 +32,6 @@ The capture list in a lambda captures variables from the surrounding scope where
 
 int main() {
 
-    // Create a vector of raw pointers to Person objects
     std::vector<Person*> people;
     people.push_back(new Person("Alice", 30));
     people.push_back(new Person("Bob", 25));
@@ -40,7 +39,6 @@ int main() {
     people.push_back(new Person("David", 25));
     people.push_back(new Person("Eve", 30));
 
-    // Sort the vector by age, and then by name if ages are equal
     std::sort(people.begin(), people.end(), [](const Person* a, const Person* b) {
         if (a->age == b->age) {
             return a->name < b->name;
@@ -48,12 +46,10 @@ int main() {
         return a->age < b->age;
     });
 
-    // Print the sorted vector
     std::for_each(people.begin(), people.end(), [](const Person* person) {
         person->display();
     });
 
-    // Use std::find_if to find a person named "Bob"
     auto it = std::find_if(people.begin(), people.end(), [](const Person* person) {
         return person->name == "Bob";
     });
@@ -65,7 +61,7 @@ int main() {
         std::cout << "Bob not found" << std::endl;
     }
 
-Person *target=new Person("Alice", 30); // std::count used to count the number of target 
+Person *target=new Person("Alice", 30); /// std::count used to count the number of target 
 
  int count = std::count(people.begin(), people.end(), target);
  std::cout << "Number of 'Alice' instances: " << count << std::endl;
@@ -79,7 +75,6 @@ else {
 }
 
 
-// Clean up the dynamically allocated memory
     for (auto &person : people) {
         delete person;
     }
